@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback, useMemo } from "react";
+const { useState, useEffect, useCallback, useMemo } = React;
 
 // ── Konfiguracja ──────────────────────────────────────────────────────────────
 // Po wdrożeniu Google Apps Script, wklej tutaj URL wdrożenia:
@@ -337,7 +337,7 @@ const styles = `
 // ══════════════════════════════════════════════════════════════════════════════
 // GŁÓWNA APLIKACJA
 // ══════════════════════════════════════════════════════════════════════════════
-export default function App() {
+function App() {
   const [logged, setLogged] = useState(false);
   const [view, setView] = useState('dashboard');
   const [toast, setToast] = useState(null);
@@ -1192,3 +1192,5 @@ function Settings({ users: initUsers, config, showToast, onSaved }) {
     </div>
   );
 }
+
+window.App = App;
