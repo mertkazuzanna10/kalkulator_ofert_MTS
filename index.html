@@ -13,7 +13,6 @@
       display: flex; align-items: center; justify-content: center;
       flex-direction: column; gap: 12px;
       background: #F5F7FA; color: #1B3A5C;
-      font-family: system-ui, sans-serif;
     }
     #loading p { font-size: 14px; color: #9AA3AE; }
   </style>
@@ -31,28 +30,26 @@
   <script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
   <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-  <script type="text/babel" data-type="module" src="FirmaX_App.jsx" data-presets="react"></script>
+  <script type="text/babel" src="FirmaX_App.jsx" data-presets="react"></script>
 
   <script>
     window.addEventListener('load', function() {
       setTimeout(function() {
         try {
-          var loading = document.getElementById('loading');
-          if (loading) loading.style.display = 'none';
-          var App = window.App;
-          if (!App) {
+          document.getElementById('loading').style.display = 'none';
+          if (!window.App) {
             document.getElementById('root').innerHTML =
-              '<div style="padding:40px;color:red;font-family:system-ui">Błąd: komponent App nie został załadowany. Sprawdź konsolę (F12).</div>';
+              '<div style="padding:40px;color:red">Błąd: App nie załadowany. Sprawdź konsolę F12.</div>';
             return;
           }
-          var root = ReactDOM.createRoot(document.getElementById('root'));
-          root.render(React.createElement(App));
+          ReactDOM.createRoot(document.getElementById('root')).render(
+            React.createElement(window.App)
+          );
         } catch(e) {
-          console.error('Błąd uruchamiania:', e);
           document.getElementById('root').innerHTML =
-            '<div style="padding:40px;color:red;font-family:system-ui">Błąd: ' + e.message + '</div>';
+            '<div style="padding:40px;color:red">Błąd: ' + e.message + '</div>';
         }
-      }, 500);
+      }, 1000);
     });
   </script>
 </body>
