@@ -1,3 +1,4 @@
+/** @jsxRuntime classic */
 const { useState, useEffect, useCallback, useMemo } = React;
 
 // ── Konfiguracja ──────────────────────────────────────────────────────────────
