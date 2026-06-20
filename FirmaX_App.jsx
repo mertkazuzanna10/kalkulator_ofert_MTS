@@ -1,4 +1,3 @@
-/** @jsxRuntime classic */
 const { useState, useEffect, useCallback, useMemo } = React;
 
 // ── Konfiguracja ──────────────────────────────────────────────────────────────
@@ -6,7 +5,7 @@ const { useState, useEffect, useCallback, useMemo } = React;
 const BACKEND_URL = "https://script.google.com/macros/s/AKfycbxYM8lylcLUH4_WwjOrpEiwyKKjWWU8V5Hhx7UMMXo6sk-6n5BGLW0jEWm3uRVaic4l/exec";
 // Przykład: "https://script.google.com/macros/s/AKfycbx.../exec"
 
-const DEMO_MODE = BACKEND_URL === "https://script.google.com/macros/s/AKfycbxYM8lylcLUH4_WwjOrpEiwyKKjWWU8V5Hhx7UMMXo6sk-6n5BGLW0jEWm3uRVaic4l/exec";
+const DEMO_MODE = BACKEND_URL === "WKLEJ_TUTAJ_URL_APPS_SCRIPT";
 
 // ── Demo dane ─────────────────────────────────────────────────────────────────
 const DEMO_CONFIG = {
