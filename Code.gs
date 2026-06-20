@@ -13,7 +13,7 @@
 // ============================================================
 
 const SPREADSHEET_ID = ''; // ZOSTAW PUSTE - skrypt sam tworzy arkusz przy pierwszym uruchomieniu
-const APP_PIN = 'firmax2025'; // Zmień na własny PIN
+const APP_PIN = 'dronyitp2025'; // Zmień na własny PIN
 
 // ── Główny handler żądań ──────────────────────────────────────────────────────
 function doGet(e) {
