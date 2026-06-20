@@ -32,10 +32,7 @@
   <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 
-  <!-- WAŻNE: plik .jsx zawiera pragma /** @jsxRuntime classic */ na samym
-       początku - to wymusza użycie React.createElement zamiast automatycznego
-       importu react/jsx-runtime, który nie działa z plików ładowanych przez CDN -->
-  <script type="text/babel" data-presets="react" src="FirmaX_App.jsx"></script>
+  <script type="text/babel" data-presets="env,react" src="FirmaX_App.jsx"></script>
 
   <script>
     window.addEventListener('load', function() {
