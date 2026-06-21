@@ -15,6 +15,7 @@
       background: #F5F7FA; color: #1B3A5C;
     }
     #loading p { font-size: 14px; color: #9AA3AE; }
+    #errbox { padding:40px; color:#b00020; font-family:monospace; font-size:13px; white-space:pre-wrap; }
   </style>
 </head>
 <body>
@@ -30,31 +31,36 @@
 
   <script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
   <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
-  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-
-  <script type="text/babel" data-presets="env,react" src="FirmaX_App.jsx"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.17.9/babel.min.js"></script>
 
   <script>
-    window.addEventListener('load', function() {
-      setTimeout(function() {
-        try {
-          document.getElementById('loading').style.display = 'none';
-          if (!window.App) {
-            document.getElementById('root').innerHTML =
-              '<div style="padding:40px;color:red;font-family:system-ui">' +
-              'Błąd: App nie załadowany. Sprawdź konsolę F12 i wyślij zrzut ekranu.</div>';
-            return;
-          }
-          ReactDOM.createRoot(document.getElementById('root'))
-            .render(React.createElement(window.App));
-        } catch(e) {
-          console.error(e);
-          document.getElementById('root').innerHTML =
-            '<div style="padding:40px;color:red;font-family:system-ui">Błąd: ' +
-            e.message + '</div>';
+    fetch('FirmaX_App.jsx?v=' + Date.now())
+      .then(function(res) {
+        if (!res.ok) throw new Error('Nie można wczytać FirmaX_App.jsx (status ' + res.status + ')');
+        return res.text();
+      })
+      .then(function(source) {
+        var compiled = Babel.transform(source, {
+          presets: [['react', { runtime: 'classic' }]],
+          filename: 'FirmaX_App.jsx'
+        }).code;
+        var script = document.createElement('script');
+        script.textContent = compiled;
+        document.body.appendChild(script);
+
+        document.getElementById('loading').style.display = 'none';
+        if (!window.App) {
+          throw new Error('Komponent App nie został zdefiniowany po kompilacji.');
         }
-      }, 1500);
-    });
+        var root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(React.createElement(window.App));
+      })
+      .catch(function(err) {
+        console.error('Błąd ładowania aplikacji:', err);
+        document.getElementById('loading').style.display = 'none';
+        document.getElementById('root').innerHTML =
+          '<div id="errbox">BŁĄD: ' + err.message + '\n\nSprawdź konsolę (F12) po więcej szczegółów.</div>';
+      });
   </script>
 </body>
 </html>
