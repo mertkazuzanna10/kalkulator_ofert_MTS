@@ -1194,4 +1194,3 @@ function Settings({ users: initUsers, config, showToast, onSaved }) {
 }
 
 window.App = App;
-1
