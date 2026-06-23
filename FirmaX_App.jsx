@@ -1991,7 +1991,7 @@ async function generateOfferPdf(offer, products, companyInfo) {
 
       doc.setFont('Outfit', 'normal'); doc.setFontSize(FS); setText(INK);
       doc.text(name, margin, y);
-      doc.text(`${pln(val)} zł`, RIGHT, y, { align: 'right' });
+      doc.text(pln(val), RIGHT, y, { align: 'right' });
       sectionNet += +val;
       y += 5;
 
@@ -2019,18 +2019,18 @@ async function generateOfferPdf(offer, products, companyInfo) {
     setText(GRAY);
     doc.text('Netto', summaryX, y);
     setText(INK);
-    doc.text(`${pln(sectionNet)} zł`, RIGHT, y, { align: 'right' });
+    doc.text(pln(sectionNet), RIGHT, y, { align: 'right' });
     y += 5.5;
 
     setText(GRAY);
     doc.text('VAT (23%)', summaryX, y);
     setText(INK);
-    doc.text(`${pln(sectionVat)} zł`, RIGHT, y, { align: 'right' });
+    doc.text(pln(sectionVat), RIGHT, y, { align: 'right' });
     y += 5.5;
 
     setText(INK);
     doc.text('Brutto', summaryX, y);
-    doc.text(`${pln(sectionGross)} zł`, RIGHT, y, { align: 'right' });
+    doc.text(pln(sectionGross), RIGHT, y, { align: 'right' });
     y += 10;
   }
 
@@ -2052,7 +2052,7 @@ async function generateOfferPdf(offer, products, companyInfo) {
   doc.setFont('Outfit', 'normal'); doc.setFontSize(FS_TOTAL); setText(GRAY);
   doc.text('WARTOŚĆ CAŁKOWITA BRUTTO', margin, y);
   doc.setFont('Outfit', 'bold'); setText(INK);
-  doc.text(`${pln(offer['Wartość brutto'])} zł`, RIGHT, y, { align: 'right' });
+  doc.text(pln(offer['Wartość brutto']), RIGHT, y, { align: 'right' });
   y += 12;
 
   // ── Uwagi ogólne do oferty ────────────────────────────────────────────────────
