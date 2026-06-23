@@ -1,7 +1,7 @@
 const { useState, useEffect, useCallback, useMemo, useRef } = React;
 
 // ── Konfiguracja ──────────────────────────────────────────────────────────────
-const BACKEND_URL = "https://script.googleusercontent.com/macros/echo?user_content_key=AUkAhnSARQ3aFjo5lXm72FS9qoX77eyBZyPucIlmKOChPYnzyYq3UTGIDHiUmDqI83DFmZqRulldrZ2_JXrVjmTkRrTiFG6pXKdIcIEncEudR5K5MgeBqd-L461KRT06hznsPM_G_kMAKCiziiHh-2L5Ex6vPG7Jkn42GViHBv9NXrE2yr1fOxvzz1rhOmRZinYj8S8NEE5tJD4q-0XkJbrM78pMEc91YhP70NiczuYejrapzwDH9xNcu9bpTWW5tPRLl_LzoaF8Wn8cgCSKB7aeGB8TwqBu9w&lib=MUs-O2fkAseC1P-yfIwg9Jh0r2dv4nAko";
+const BACKEND_URL = "https://script.google.com/macros/s/AKfycbxYM8lylcLUH4_WwjOrpEiwyKKjWWU8V5Hhx7UMMXo6sk-6n5BGLW0jEWm3uRVaic4l/exec";
 
 const DEMO_MODE = BACKEND_URL === "WKLEJ_TUTAJ_URL_APPS_SCRIPT";
 
